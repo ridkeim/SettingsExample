@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <CheckBoxPreference
+        app:key="text_color_black"
+        app:title="Черный"
+        app:defaultValue="true"
+        app:summary="Устанавливает черный цвет" />
+    <CheckBoxPreference
+        app:key="text_color_red"
+        app:title="Красный"
+        app:summary="Устанавливает красный цвет" />
+    <CheckBoxPreference
+        app:key="text_color_green"
+        app:title="Зеленый"
+        app:summary="Устанавливает зеленый цвет" />
+    <CheckBoxPreference
+        app:key="text_color_blue"
+        app:title="Синий"
+        app:summary="Устанавливает синий цвет" />
+</PreferenceScreen>

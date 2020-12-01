@@ -1,0 +1,67 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="Работа с файлами">
+        <CheckBoxPreference
+            app:key="pref_openmode"
+            app:title="Открыть файл"
+            app:summary="Открывать файл при запуске приложения"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="Настройки шрифта">
+
+        <EditTextPreference
+            app:key="text_size"
+            app:title="Размер шрифта"
+            app:summary="Устанавливает новый размер шрифта"
+            app:defaultValue="14"
+            app:dialogTitle="Введите размер шрифта (от 10 до 32)" />
+
+        <ListPreference
+            app:key="text_style"
+            app:title="Стиль для шрифта"
+            app:summary="Устанавливает стиль для шрифта"
+            app:defaultValue="1"
+            app:entries="@array/text_style"
+            app:entryValues="@array/text_style"
+            app:dialogTitle="Выберите стиль для шрифта" />
+        <Preference
+            app:key="text_color"
+            app:title="Цвет текста"
+            app:summary="Устанавливает цвет для текста"
+            app:fragment="ru.ridkeim.settingsexample.SettingsActivity$ColorSettingsFragment"/>
+    </PreferenceCategory>
+</PreferenceScreen>
