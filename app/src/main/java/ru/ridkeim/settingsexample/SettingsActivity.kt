@@ -1,24 +1,47 @@
 package ru.ridkeim.settingsexample
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
+import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import ru.ridkeim.settingsexample.preffragments.SettingsFragment
 
 class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
-
+        val rootPreferenceTitle = resources.getString(R.string.root_preference_title)
         if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
+            val settingsFragment = SettingsFragment().apply {
+                arguments = bundleOf("title" to rootPreferenceTitle)
+            }
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(R.id.settings,settingsFragment)
+            }
+        }
+        supportActionBar?.title = rootPreferenceTitle
+        supportFragmentManager.addOnBackStackChangedListener{
+            updateTitle()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun updateTitle(){
+        val settingsFragment = supportFragmentManager.findFragmentById(R.id.settings) as PreferenceFragmentCompat
+        settingsFragment.preferenceScreen.title?.let {
+            supportActionBar?.title = if (it.isEmpty()){
+                resources.getString(R.string.title_activity_settings)
+            } else{
+                it
+            }
+        }
+        Log.d(SettingsActivity::class.java.canonicalName,"updateTitle")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -34,30 +57,19 @@ class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPrefere
         return super.onOptionsItemSelected(item)
     }
 
-    class SettingsFragment : PreferenceFragmentCompat() {
-        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-            setPreferencesFromResource(R.xml.root_preferences, rootKey)
-        }
-    }
-
-    class ColorSettingsFragment : PreferenceFragmentCompat() {
-        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-            setPreferencesFromResource(R.xml.color_preferences, rootKey)
-        }
-    }
-
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         val args = pref.extras
         val fragment = supportFragmentManager.fragmentFactory.instantiate(
             classLoader,
             pref.fragment)
         fragment.arguments = args
+        args.putCharSequence("title", pref.title)
         fragment.setTargetFragment(caller, 0)
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.settings, fragment)
-            .addToBackStack(null)
-            .commit()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.settings,fragment)
+            addToBackStack(null)
+        }
         return true
     }
 }

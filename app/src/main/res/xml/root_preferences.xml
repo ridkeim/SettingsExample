@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+   app:title="@string/root_preference_title">
 
     <PreferenceCategory app:title="@string/messages_header">
 
@@ -62,6 +63,6 @@
             app:key="text_color"
             app:title="Цвет текста"
             app:summary="Устанавливает цвет для текста"
-            app:fragment="ru.ridkeim.settingsexample.SettingsActivity$ColorSettingsFragment"/>
+            app:fragment="ru.ridkeim.settingsexample.preffragments.ColorSettingsFragment"/>
     </PreferenceCategory>
 </PreferenceScreen>
