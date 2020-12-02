@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SettingsExample</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Настройки</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -16,6 +16,29 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="settings">Настройки</string>
-    <string name="root_preference_title">Настройки</string>
+    <string name="open_mode_title">Открыть файл</string>
+    <string name="open_mode_summary">Открывать файл при запуске приложения</string>
+    <string name="files_category_title">Работа с файлами</string>
+    <string name="text_category_title">Настройки шрифта</string>
+    <string name="text_size_title">Размер шрифта</string>
+    <string name="text_size_summary">Устанавливает новый размер шрифта</string>
+    <string name="text_size_dialog_title">Введите размер шрифта (от 10 до 32)</string>
+    <string name="text_style_title">Стиль для шрифта</string>
+    <string name="text_style_summary">Устанавливает стиль для шрифта</string>
+    <string name="text_style_dialog_title">Выберите стиль для шрифта</string>
+    <string name="text_color_title">Цвет текста</string>
+    <string name="text_color_black_title">Черный</string>
+    <string name="text_color_black_summary">Устанавливает черный цвет</string>
+    <string name="text_color_red_title">Красный</string>
+    <string name="text_color_red_summary">Устанавливает красный цвет</string>
+    <string name="text_color_green_">Зеленый</string>
+    <string name="text_color_green_summary">Устанавливает зеленый цвет</string>
+    <string name="text_color_blue_title">Синий</string>
+    <string name="text_color_blue_summary">Устанавливает синий цвет</string>
+    <string name="intent_action_summary">Импортированная системная настройка</string>
+    <string name="intent_action_title">Настройка через намерение</string>
+    <string name="text_color_summary">Устанавливает цвет для текста</string>
+    <string name="other_category_title">Разное</string>
+    <string name="seek_bar_summary">SeekBar Summary</string>
+    <string name="seek_bar_title">SeekBar</string>
 </resources>

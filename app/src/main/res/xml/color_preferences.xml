@@ -2,19 +2,19 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto" >
     <CheckBoxPreference
         app:key="text_color_black"
-        app:title="Черный"
+        app:title="@string/text_color_black_title"
         app:defaultValue="true"
-        app:summary="Устанавливает черный цвет" />
+        app:summary="@string/text_color_black_summary" />
     <CheckBoxPreference
         app:key="text_color_red"
-        app:title="Красный"
-        app:summary="Устанавливает красный цвет" />
+        app:title="@string/text_color_red_title"
+        app:summary="@string/text_color_red_summary" />
     <CheckBoxPreference
         app:key="text_color_green"
-        app:title="Зеленый"
-        app:summary="Устанавливает зеленый цвет" />
+        app:title="@string/text_color_green_"
+        app:summary="@string/text_color_green_summary" />
     <CheckBoxPreference
         app:key="text_color_blue"
-        app:title="Синий"
-        app:summary="Устанавливает синий цвет" />
+        app:title="@string/text_color_blue_title"
+        app:summary="@string/text_color_blue_summary" />
 </PreferenceScreen>

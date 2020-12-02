@@ -4,28 +4,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import ru.ridkeim.settingsexample.preffragments.SettingsFragment
 
 class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
-        val rootPreferenceTitle = resources.getString(R.string.root_preference_title)
-        if (savedInstanceState == null) {
-            val settingsFragment = SettingsFragment().apply {
-                arguments = bundleOf("title" to rootPreferenceTitle)
-            }
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                replace(R.id.settings,settingsFragment)
-            }
-        }
-        supportActionBar?.title = rootPreferenceTitle
         supportFragmentManager.addOnBackStackChangedListener{
             updateTitle()
         }
@@ -34,23 +21,22 @@ class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPrefere
 
     private fun updateTitle(){
         val settingsFragment = supportFragmentManager.findFragmentById(R.id.settings) as PreferenceFragmentCompat
-        settingsFragment.preferenceScreen.title?.let {
-            supportActionBar?.title = if (it.isEmpty()){
-                resources.getString(R.string.title_activity_settings)
-            } else{
-                it
-            }
+        if(settingsFragment.preferenceScreen.title != null){
+            supportActionBar?.title = settingsFragment.preferenceScreen.title
+        }else{
+            supportActionBar?.title = resources.getString(R.string.title_activity_settings)
         }
         Log.d(SettingsActivity::class.java.canonicalName,"updateTitle")
     }
 
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             android.R.id.home -> {
-                if(supportFragmentManager.backStackEntryCount == 0){
-                    finish()
-                }else{
+                if (supportFragmentManager.backStackEntryCount > 0) {
                     supportFragmentManager.popBackStack()
+                    return true
                 }
             }
         }

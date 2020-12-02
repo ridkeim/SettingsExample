@@ -1,5 +1,5 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-   app:title="@string/root_preference_title">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory app:title="@string/messages_header">
 
@@ -34,35 +34,69 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="Работа с файлами">
+        app:title="@string/files_category_title">
+
         <CheckBoxPreference
-            app:key="pref_openmode"
-            app:title="Открыть файл"
-            app:summary="Открывать файл при запуске приложения"/>
+            app:key="open_mode"
+            app:title="@string/open_mode_title"
+            app:summary="@string/open_mode_summary"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="Настройки шрифта">
+        app:title="@string/text_category_title">
 
         <EditTextPreference
             app:key="text_size"
-            app:title="Размер шрифта"
-            app:summary="Устанавливает новый размер шрифта"
+            app:title="@string/text_size_title"
+            app:summary="@string/text_size_summary"
             app:defaultValue="14"
-            app:dialogTitle="Введите размер шрифта (от 10 до 32)" />
+            app:dialogTitle="@string/text_size_dialog_title"/>
 
         <ListPreference
             app:key="text_style"
-            app:title="Стиль для шрифта"
-            app:summary="Устанавливает стиль для шрифта"
-            app:defaultValue="1"
-            app:entries="@array/text_style"
-            app:entryValues="@array/text_style"
-            app:dialogTitle="Выберите стиль для шрифта" />
+            app:title="@string/text_style_title"
+            app:summary="@string/text_style_summary"
+            app:defaultValue="normal"
+            app:entries="@array/text_style_entries"
+            app:entryValues="@array/text_style_values"
+            app:dialogTitle="@string/text_style_dialog_title"/>
+
         <Preference
-            app:key="text_color"
-            app:title="Цвет текста"
-            app:summary="Устанавливает цвет для текста"
+            app:title="@string/text_color_title"
+            app:summary="@string/text_color_summary"
             app:fragment="ru.ridkeim.settingsexample.preffragments.ColorSettingsFragment"/>
+
     </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/other_category_title" >
+
+        <Preference
+            app:summary="@string/intent_action_summary"
+            app:title="@string/intent_action_title" >
+
+            <intent android:action="android.settings.AIRPLANE_MODE_SETTINGS" />
+
+        </Preference>
+
+        <DropDownPreference
+            app:title="DropDown"
+            app:defaultValue="bold"
+            app:entryValues="@array/text_style_values"
+            app:entries="@array/text_style_entries"
+            app:summary="Выбор"
+            app:useSimpleSummaryProvider="true"
+            />
+
+        <SeekBarPreference
+            app:title="@string/seek_bar_title"
+            app:key="seek_bar"
+            app:min="1"
+            app:useSimpleSummaryProvider="true"
+            app:summary="@string/seek_bar_summary"
+            />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

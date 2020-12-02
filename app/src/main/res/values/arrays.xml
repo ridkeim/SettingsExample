@@ -9,5 +9,19 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
-    <string-array name="text_style" />
+
+    <string-array name="text_style_entries">
+        <item>Обычный</item>
+        <item>Полужирный</item>
+        <item>Курсив</item>
+        <item>Полужирный+Курсив</item>
+    </string-array>
+
+    <string-array name="text_style_values">
+        <item>normal</item>
+        <item>bold</item>
+        <item>italic</item>
+        <item>bold_italic</item>
+    </string-array>
+
 </resources>
