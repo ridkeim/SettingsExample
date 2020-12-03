@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto" >
     <CheckBoxPreference
-        app:key="text_color_black"
+        app:key="@string/pref_text_color_black"
         app:title="@string/text_color_black_title"
         app:defaultValue="true"
         app:summary="@string/text_color_black_summary" />
     <CheckBoxPreference
-        app:key="text_color_red"
+        app:key="@string/pref_text_color_red"
         app:title="@string/text_color_red_title"
         app:summary="@string/text_color_red_summary" />
     <CheckBoxPreference
-        app:key="text_color_green"
-        app:title="@string/text_color_green_"
+        app:key="@string/pref_text_color_green"
+        app:title="@string/text_color_green"
         app:summary="@string/text_color_green_summary" />
     <CheckBoxPreference
-        app:key="text_color_blue"
+        app:key="@string/pref_text_color_blue"
         app:title="@string/text_color_blue_title"
         app:summary="@string/text_color_blue_summary" />
 </PreferenceScreen>

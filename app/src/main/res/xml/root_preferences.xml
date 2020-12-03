@@ -1,43 +1,10 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="@string/sync_header">
-
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
-    </PreferenceCategory>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         app:title="@string/files_category_title">
 
         <CheckBoxPreference
-            app:key="open_mode"
+            app:key="@string/pref_open_mode"
             app:title="@string/open_mode_title"
             app:summary="@string/open_mode_summary"/>
 
@@ -47,14 +14,14 @@
         app:title="@string/text_category_title">
 
         <EditTextPreference
-            app:key="text_size"
+            app:key="@string/pref_text_size"
             app:title="@string/text_size_title"
             app:summary="@string/text_size_summary"
-            app:defaultValue="14"
+            app:defaultValue="@string/text_size_def_value"
             app:dialogTitle="@string/text_size_dialog_title"/>
 
         <ListPreference
-            app:key="text_style"
+            app:key="@string/pref_text_style"
             app:title="@string/text_style_title"
             app:summary="@string/text_style_summary"
             app:defaultValue="normal"
@@ -66,36 +33,6 @@
             app:title="@string/text_color_title"
             app:summary="@string/text_color_summary"
             app:fragment="ru.ridkeim.settingsexample.preffragments.ColorSettingsFragment"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        app:title="@string/other_category_title" >
-
-        <Preference
-            app:summary="@string/intent_action_summary"
-            app:title="@string/intent_action_title" >
-
-            <intent android:action="android.settings.AIRPLANE_MODE_SETTINGS" />
-
-        </Preference>
-
-        <DropDownPreference
-            app:title="DropDown"
-            app:defaultValue="bold"
-            app:entryValues="@array/text_style_values"
-            app:entries="@array/text_style_entries"
-            app:summary="Выбор"
-            app:useSimpleSummaryProvider="true"
-            />
-
-        <SeekBarPreference
-            app:title="@string/seek_bar_title"
-            app:key="seek_bar"
-            app:min="1"
-            app:useSimpleSummaryProvider="true"
-            app:summary="@string/seek_bar_summary"
-            />
 
     </PreferenceCategory>
 

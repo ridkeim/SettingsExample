@@ -1,21 +1,6 @@
 <resources>
     <string name="app_name">SettingsExample</string>
     <string name="title_activity_settings">Настройки</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="open_mode_title">Открыть файл</string>
     <string name="open_mode_summary">Открывать файл при запуске приложения</string>
     <string name="files_category_title">Работа с файлами</string>
@@ -31,7 +16,7 @@
     <string name="text_color_black_summary">Устанавливает черный цвет</string>
     <string name="text_color_red_title">Красный</string>
     <string name="text_color_red_summary">Устанавливает красный цвет</string>
-    <string name="text_color_green_">Зеленый</string>
+    <string name="text_color_green">Зеленый</string>
     <string name="text_color_green_summary">Устанавливает зеленый цвет</string>
     <string name="text_color_blue_title">Синий</string>
     <string name="text_color_blue_summary">Устанавливает синий цвет</string>
@@ -41,4 +26,14 @@
     <string name="other_category_title">Разное</string>
     <string name="seek_bar_summary">SeekBar Summary</string>
     <string name="seek_bar_title">SeekBar</string>
+    <string name="action_open_title">Open</string>
+    <string name="action_save_title">Save</string>
+    <string name="pref_open_mode">open_mode</string>
+    <string name="pref_text_size">text_size</string>
+    <string name="pref_text_style">text_style</string>
+    <string name="pref_text_color_black">text_color_black</string>
+    <string name="pref_text_color_red">text_color_red</string>
+    <string name="pref_text_color_green">text_color_green</string>
+    <string name="pref_text_color_blue">text_color_blue</string>
+    <string name="text_size_def_value">14</string>
 </resources>
